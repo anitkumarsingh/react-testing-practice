@@ -12,6 +12,7 @@ const App = () => {
 				onClick={() => setCurrentColor(color)}>
 				Change color to {color}
 			</button>
+			<input type='checkbox' name='color' />
 		</>
 	);
 };
