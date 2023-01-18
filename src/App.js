@@ -13,12 +13,20 @@ const App = () => {
 		<>
 			<button
 				type='button'
-				style={{ backgroundColor: currentColor }}
+				style={{ backgroundColor: isDisabled ? 'gray' : currentColor }}
 				onClick={() => setCurrentColor(color)}
 				disabled={isDisabled}>
 				Change color to {color}
 			</button>
-			<input type='checkbox' name='color' onChange={disableHandler} />
+			<br />
+			<input
+				type='checkbox'
+				name='Disabled Button'
+				onChange={disableHandler}
+				id='disabled-checkbox'
+				placeholder='Disabled button'
+			/>
+			Disabled Button
 		</>
 	);
 };
