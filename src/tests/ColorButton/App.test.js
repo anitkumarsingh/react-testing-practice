@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 // import { logRoles } from '@testing-library/dom';
 import App from '../../App';
+import { spacesBetweenColors } from '../../utils/spacesBetweenColors';
 
 test('Button with initial color red', () => {
 	const { container } = render(<App />);
@@ -60,4 +61,16 @@ test('Disabled button has gray background and reverts to blue', () => {
 	// Re-enabling button
 	fireEvent.click(checkbox);
 	expect(colorButton).toHaveStyle({ 'background-color': 'blue' });
+});
+
+describe('Spaces between camelCases color letters', () => {
+	test('No space between colors with only one color', () => {
+		expect(spacesBetweenColors('Red')).toBe('Red');
+	});
+	test('One space between colors with only one color', () => {
+		expect(spacesBetweenColors('MidnightBlue')).toBe('Midnight Blue');
+	});
+	test('Multiple space between colors with only one color', () => {
+		expect(spacesBetweenColors('MidnightVioletBlue')).toBe('Midnight Violet Blue');
+	});
 });
