@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { spacesBetweenColors } from './utils/spacesBetweenColors';
 
 const App = () => {
-	const [currentColor, setCurrentColor] = useState('red');
-  const [isDisabled, setIsDisabled] = useState(false);
-	const color = currentColor === 'red' ? 'blue' : 'red';
+	const [currentColor, setCurrentColor] = useState('MediumVioletRed');
+	const [isDisabled, setIsDisabled] = useState(false);
+	const color = currentColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
 
 	const disableHandler = () => {
 		setIsDisabled(!isDisabled);
@@ -16,7 +17,7 @@ const App = () => {
 				style={{ backgroundColor: isDisabled ? 'gray' : currentColor }}
 				onClick={() => setCurrentColor(color)}
 				disabled={isDisabled}>
-				Change color to {color}
+				Change color to {spacesBetweenColors(color)}
 			</button>
 			<br />
 			<input
